@@ -1,76 +1,71 @@
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f3f0e9;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d6cfc2' fill-opacity='0.2'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 .login-container {
-    background-color: #fff;
+    background-color: white;
     padding: 2rem;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 300px;
+}
+.logo-container {
     text-align: center;
+    margin-bottom: 1rem;
+}
+.logo {
+    width: 150px;
+    height: auto;
+}
+.submit-button {
+    display: flex;
+    flex-direction: column;
 }
 h1 {
-    color: #4a4a4a;
-    font-size: 1.5rem;
+    color: #9D2235;
+    text-align: center;
     margin-bottom: 1.5rem;
-    position: relative;
 }
-h1::before, h1::after {
-    content: "登録";
-    font-family: "Noto Sans JP", sans-serif;
-    color: #d9c5b2;
-    opacity: 0.3;
-    position: absolute;
-    top: -15px;
-    font-size: 0.8rem;
+form {
+    display: flex;
+    flex-direction: column;
 }
-h1::before {
-    left: 0;
-}
-h1::after {
-    right: 0;
+label {
+    margin-bottom: 0.5rem;
+    color: #333;
 }
 input {
-    width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #d9c5b2;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 button {
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #a0522d;
+    background-color: #9D2235;
     color: white;
+    padding: 0.75rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
 button:hover {
-    background-color: #8b4513;
+    background-color: #7A1A29;
 }
-.divider {
-    margin: 1rem 0;
-    border-top: 1px solid #d9c5b2;
-    position: relative;
+.forgot-password {
+    text-align: center;
+    margin-top: 1rem;
 }
-.divider::before {
-    content: "or";
-    background-color: #fff;
-    padding: 0 10px;
-    font-size: 0.8rem;
-    color: #888;
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+.forgot-password a {
+    color: #9D2235;
+    text-decoration: none;
+}
+.forgot-password a:hover {
+    text-decoration: underline;
 }
