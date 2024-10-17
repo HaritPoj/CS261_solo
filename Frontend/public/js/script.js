@@ -13,11 +13,59 @@ function submitLogin() {
             "PassWord": password
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('message').innerText = data.message;
+    .then(response => {
+        if (response.ok) {
+            return response.json(); 
+        } else {
+            return response.json().then(data => {
+                let errorMessage;
+                switch (response.status) {
+                    case 400:
+                        if (data.message === 'User or Password Invalid!') {
+                            errorMessage = 'Invalid username or password. Please try again.';
+                        } else if (data.message === 'Could not read the request body!') {
+                            errorMessage = 'There was an issue with the request body. Please check your input.';
+                        } else if (data.message.includes('UserName or PassWord Invalid!')) {
+                            errorMessage = 'Required both Username and Password.';
+                        } else {
+                            errorMessage = 'Something went wrong please check your input.';
+                        }
+                        break;
+                    case 401:
+                        errorMessage = 'Unauthorized: Application-Key header required or missing. Please provide a valid access token.';
+                        break;
+                    case 403:
+                        if (data.message.includes('invalid token')) {
+                            errorMessage = 'Forbidden: Invalid token. Please confirm your access token is valid.';
+                        } else {
+                            errorMessage = 'Forbidden: You are not authorized to access this resource.';
+                        }
+                        break;
+                    case 404:
+                        errorMessage = 'Not Found: The requested resource does not exist.';
+                        break;
+                    default:
+                        errorMessage = 'An unexpected error occurred. Please try again later.';
+                }
+                throw new Error(errorMessage);
+            });
+        }
     })
-    .catch(error => console.error('Error:', error));
+    .then(data => {
+        if (data.status === true) {
+            const displayName = data.displayname_th || 'ชื่อไม่ระบุ';
+            const department = data.department || 'แผนกไม่ระบุ';
+            const faculty = data.faculty || 'คณะไม่ระบุ';
+            
+            document.getElementById('message').innerText = `ชื่อ: ${displayName}\nสาขา: ${department}\nคณะ: ${faculty}`;
+        } else {
+            document.getElementById('message').innerText = data.message;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('message').innerText = error.message;
+    });
 }
 
 
